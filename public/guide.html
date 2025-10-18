@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Health Matters Clinic — Governance & Advisory Guide</title>
-  <meta name="description" content="Official guide for Board of Directors and Community Advisory Council service at Health Matters Clinic, including policies, agreements, and applications." />
+  <meta name="description" content="Official guide for Board of Directors and Community Advisory Board service at Health Matters Clinic, including policies, agreements, and applications." />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .tab-trigger[aria-selected="true"] { border-bottom-width: 3px; }
@@ -25,7 +25,7 @@
         <p class="text-white/90 text-sm">Helping + Healing • Official Governance & Advisory Guide</p>
       </div>
       <div class="hidden sm:flex gap-3">
-        <button data-tab="apply" class="inline-flex items-center gap-2 rounded-xl bg-white/95 text-slate-900 px-4 py-2 font-medium shadow hover:bg-white">Apply</button>
+        <button data-tab="apply" class="inline-flex items-center gap-2 rounded-xl bg-white/95 text-slate-900 px-4 py-2 font-medium shadow hover:bg-white">Apply Now</button>
         <button data-tab="downloads" class="inline-flex items-center gap-2 rounded-xl bg-black/40 text-white px-4 py-2 font-medium shadow hover:bg-black/50">Downloads</button>
       </div>
     </div>
@@ -33,7 +33,7 @@
 
   <div class="bg-white/80 backdrop-blur sticky top-0 z-40 border-b border-slate-200">
     <div class="mx-auto container-wide px-6 py-2 flex flex-wrap items-center justify-between gap-3">
-      <div class="text-sm text-slate-600">Updated: Oct 18, 2025 • Version 3.0 (restored)</div>
+      <div class="text-sm text-slate-600">Updated: Oct 18, 2025 • Version 5.0</div>
       <div class="flex gap-2">
         <a href="mailto:executive@healthmatters.clinic" class="text-sm px-3 py-1.5 rounded-lg bg-slate-900 text-white hover:bg-slate-800">Email Questions</a>
         <button data-tab="downloads" class="text-sm px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200">Downloads</button>
@@ -50,7 +50,7 @@
       <button class="tab-trigger px-3 pb-3 -mb-px border-b-2 border-transparent font-medium" role="tab" aria-selected="false" aria-controls="panel-bod" id="tab-bod">Board of Directors</button>
       <button class="tab-trigger px-3 pb-3 -mb-px border-b-2 border-transparent font-medium" role="tab" aria-selected="false" aria-controls="panel-meetings" id="tab-meetings">Meetings & Schedule</button>
       <button class="tab-trigger px-3 pb-3 -mb-px border-b-2 border-transparent font-medium" role="tab" aria-selected="false" aria-controls="panel-policies" id="tab-policies">Policies & Governance</button>
-      <button class="tab-trigger px-3 pb-3 -mb-px border-b-2 border-transparent font-medium" role="tab" aria-selected="false" aria-controls="panel-apply" id="tab-apply">Apply to Serve on Our Board or Community Advisory Council</button>
+      <button class="tab-trigger px-3 pb-3 -mb-px border-b-2 border-transparent font-medium" role="tab" aria-selected="false" aria-controls="panel-apply" id="tab-apply">Apply</button>
       <button class="tab-trigger px-3 pb-3 -mb-px border-b-2 border-transparent font-medium" role="tab" aria-selected="false" aria-controls="panel-downloads" id="tab-downloads">Downloads</button>
       <button class="tab-trigger px-3 pb-3 -mb-px border-b-2 border-transparent font-medium" role="tab" aria-selected="false" aria-controls="panel-faq" id="tab-faq">FAQ</button>
       <button class="tab-trigger px-3 pb-3 -mb-px border-b-2 border-transparent font-medium" role="tab" aria-selected="false" aria-controls="panel-contact" id="tab-contact">Contact</button>
@@ -60,14 +60,15 @@
     <section id="panel-overview" class="tab-panel" role="tabpanel" aria-labelledby="tab-overview" aria-hidden="false">
       <h2 class="text-xl font-semibold mb-2">Overview</h2>
       <div class="text-slate-700 space-y-3">
-        <p>Health Matters Clinic (HMC) is a community-centered health organization dedicated to advancing equitable access to care through integrated clinical services, prevention, and partnerships. The Board of Directors (“Board”) provides fiduciary oversight and strategic direction, while the Community Advisory Board (“CAB”) elevates lived experience and community priorities.</p>
+        <p>Health Matters Clinic (HMC) is a community-centered health organization dedicated to advancing equitable access to care through integrated clinical services, prevention, and partnerships. The Board of Directors ("Board") provides fiduciary oversight and strategic direction, while the Community Advisory Board ("CAB") elevates lived experience and community priorities.</p>
         <h3 class="font-semibold">About HMC</h3>
         <ul class="list-disc list-inside space-y-1">
           <li><strong>Mission:</strong> Our mission is to break down barriers to health, ensuring that everyone, regardless of their background, has the opportunity to live their healthiest life.</li>
           <li><strong>Services:</strong> Primary and preventive care, behavioral health, care coordination, health education, and community outreach.</li>
           <li><strong>Communities Served:</strong> Underserved and underinsured individuals and families in our service area, with a focus on equity and access.</li>
-          <li><strong>Approach:</strong> Evidence-informed practice, quality improvement, and cross-sector collaboration.</li>
+          <li><strong>Approach:</strong> Evidence‑informed practice, quality improvement, and cross‑sector collaboration.</li>
         </ul>
+        <p class="text-sm text-slate-600">For the full organizational overview, see <a class="underline" href="sandbox:/mnt/data/About HMC_v2.pdf" download>About HMC (PDF)</a>.</p>
       </div>
     </section>
 
@@ -158,6 +159,8 @@
           <li><a class="underline" href="sandbox:/mnt/data/HMC_Code_of_Ethics_FILLABLE.pdf" download>Code of Ethics (PDF)</a></li>
           <li><a class="underline" href="sandbox:/mnt/data/HMC_Board_Member_Agreement_FILLABLE.pdf" download>Board Member Agreement (PDF)</a></li>
         </ul>
+        <label class="mt-3 inline-flex items-center gap-2"><input type="checkbox" id="ackPolicies" /> I have read the Policies & Governance documents.</label>
+        <p id="ackStatus" class="mt-1 text-xs text-slate-600"></p>
       </div>
 
       <!-- Conflict of Interest Policy -->
@@ -218,4 +221,233 @@
         <p>Terms are three (3) years unless otherwise stated. I may resign at any time by written notice; removal may occur per bylaws.</p>
         <h4>8. Acknowledgment</h4>
         <p>By signing, I affirm my commitment to this Agreement and HMC policies.</p>
-        <p class="mt-3 text-sm">Director Name: ____________________  Signature: ____________________  Date: __________</p>\n      </article>\n    </section>\n\n    <!-- Apply -->\n    <section id=\"panel-apply\" class=\"tab-panel\" role=\"tabpanel\" aria-labelledby=\"tab-apply\" aria-hidden=\"true\">\n      <h2 class=\"text-xl font-semibold mb-2\">Apply to Serve on Our Board or Community Advisory Council</h2>\n      <p class=\"text-slate-700\">Apply to serve on the Board of Directors or the Community Advisory Board. Complete all required fields. You may upload signed policy documents below.</p>\n\n      <!-- Embedded Google Form (stable, matches your request) -->\n      <div class=\"mt-4 rounded-2xl bg-white shadow p-3\">\n        <iframe src=\"https://forms.gle/X3u5sSkPyyafdZAJ7\" width=\"100%\" height=\"1200\" frameborder=\"0\" class=\"rounded-xl\"></iframe>\n      </div>\n    </section>\n\n    <!-- Downloads -->\n    <section id=\"panel-downloads\" class=\"tab-panel\" role=\"tabpanel\" aria-labelledby=\"tab-downloads\" aria-hidden=\"true\">\n      <h2 class=\"text-xl font-semibold mb-2\">Downloads</h2>\n      <ul class=\"mt-3 space-y-2 text-slate-700\">\n        <li><a href=\"sandbox:/mnt/data/HMC_Board_Packet_Formal_With_Fillables.zip\" download>Complete Board Packet (ZIP)</a></li>\n        <li><a href=\"sandbox:/mnt/data/HMC_Committee_Structure_2025.pdf\" download>Standing Committees — Adopted Oct 18, 2025 (PDF)</a></li>\n        <li><a href=\"sandbox:/mnt/data/HMC Board of Directors Overview .pdf\" download>Board of Directors Overview (PDF)</a></li>\n        <li><a href=\"sandbox:/mnt/data/About HMC_v2.pdf\" download>About HMC (PDF)</a></li>\n        <li><a href=\"sandbox:/mnt/data/Community Advisory Board Membership Application (Paper).pdf\" download>Community Advisory Board Application (Paper) — PDF</a></li>\n        <li><a href=\"sandbox:/mnt/data/HMC_Standard_Meeting_Agenda.pdf\" download>Standard Meeting Agenda (Reference)</a></li>\n        <li><a href=\"sandbox:/mnt/data/HMC_Conflict_of_Interest_Policy_FILLABLE.pdf\" download>Conflict of Interest Policy — PDF (fillable)</a></li>\n        <li><a href=\"sandbox:/mnt/data/HMC_Code_of_Ethics_FILLABLE.pdf\" download>Code of Ethics — PDF (fillable)</a></li>\n        <li><a href=\"sandbox:/mnt/data/HMC_Board_Member_Agreement_FILLABLE.pdf\" download>Board Member Agreement — PDF (fillable)</a></li>\n      </ul>\n    </section>\n\n    <!-- FAQ -->\n    <section id=\"panel-faq\" class=\"tab-panel\" role=\"tabpanel\" aria-labelledby=\"tab-faq\" aria-hidden=\"true\">\n      <h2 class=\"text-xl font-semibold mb-2\">Frequently Asked Questions</h2>\n      <details class=\"mb-3 bg-white p-4 rounded-xl shadow\"><summary class=\"font-medium cursor-pointer\">Who is eligible to serve?</summary><p class=\"mt-2 text-slate-700\">Individuals who support HMC’s mission, can meet participation expectations, and uphold ethical standards. The Board considers professional expertise, community representation, and alignment with organizational values.</p></details>\n      <details class=\"mb-3 bg-white p-4 rounded-xl shadow\"><summary class=\"font-medium cursor-pointer\">What is the expected time commitment?</summary><p class=\"mt-2 text-slate-700\">Board members average 3–5 hours per month; CAB members 2–3 hours. Committee work or special projects may add time seasonally.</p></details>\n      <details class=\"mb-3 bg-white p-4 rounded-xl shadow\"><summary class=\"font-medium cursor-pointer\">Are meetings hybrid or in-person?</summary><p class=\"mt-2 text-slate-700\">Hybrid participation is supported. Meeting notices include connection details and materials at least seven (7) days in advance.</p></details>\n      <details class=\"mb-3 bg-white p-4 rounded-xl shadow\"><summary class=\"font-medium cursor-pointer\">Is there a financial contribution requirement?</summary><p class=\"mt-2 text-slate-700\">No mandatory give-get is imposed at this time. Members act as ambassadors and connectors and may support development activities as able.</p></details>\n      <details class=\"mb-3 bg-white p-4 rounded-xl shadow\"><summary class=\"font-medium cursor-pointer\">How are conflicts of interest handled?</summary><p class=\"mt-2 text-slate-700\">All potential conflicts must be disclosed. Affected members recuse from related deliberations and votes. Decisions are recorded in the minutes per policy.</p></details>\n      <details class=\"mb-3 bg-white p-4 rounded-xl shadow\"><summary class=\"font-medium cursor-pointer\">Are expenses reimbursed?</summary><p class=\"mt-2 text-slate-700\">Reasonable, pre-approved expenses incurred on behalf of HMC are reimbursed consistent with policy.</p></details>\n      <details class=\"mb-3 bg-white p-4 rounded-xl shadow\"><summary class=\"font-medium cursor-pointer\">Whom do I contact with questions?</summary><p class=\"mt-2 text-slate-700\">Email <a class=\"underline\" href=\"mailto:executive@healthmatters.clinic\">executive@healthmatters.clinic</a>. You may also reach out via <a class=\"underline\" href=\"https://www.linkedin.com/company/healthmattersclinic/\" target=\"_blank\" rel=\"noopener\">LinkedIn</a> or <a class=\"underline\" href=\"https://www.youtube.com/@healthmatters.clinic\" target=\"_blank\" rel=\"noopener\">YouTube</a>.</p></details>\n    </section>\n\n    <!-- Contact -->\n    <section id=\"panel-contact\" class=\"tab-panel\" role=\"tabpanel\" aria-labelledby=\"tab-contact\" aria-hidden=\"true\">\n      <h2 class=\"text-xl font-semibold mb-2\">Contact</h2>\n      <ul class=\"text-slate-700 space-y-1\">\n        <li><strong>Email:</strong> <a href=\"mailto:executive@healthmatters.clinic\" class=\"underline\">executive@healthmatters.clinic</a></li>\n        <li><strong>Phone:</strong> (404) 904-6355</li>\n        <li><strong>Website:</strong> <a href=\"https://www.healthmatters.clinic\" target=\"_blank\" class=\"underline\">www.healthmatters.clinic</a></li>\n        <li><strong>LinkedIn:</strong> <a href=\"https://www.linkedin.com/company/healthmattersclinic/\" target=\"_blank\" class=\"underline\">linkedin.com/company/healthmattersclinic</a></li>\n        <li><strong>YouTube:</strong> <a href=\"https://www.youtube.com/@healthmatters.clinic\" target=\"_blank\" class=\"underline\">youtube.com/@healthmatters.clinic</a></li>\n      </ul>\n    </section>\n  </main>\n\n  <footer class=\"mt-12 py-10 text-center text-sm text-slate-500\">\n    <p>© <span id=\"year\"></span> Health Matters Clinic • Helping + Healing</p>\n  </footer>\n\n  <script>\n    // Tabs\n    const triggers = Array.from(document.querySelectorAll('.tab-trigger'));\n    const panels = Array.from(document.querySelectorAll('.tab-panel'));\n    function activate(id){\n      triggers.forEach(btn => btn.setAttribute('aria-selected', String(btn.id === 'tab-' + id)));\n      panels.forEach(p => p.setAttribute('aria-hidden', String(p.id !== 'panel-' + id)));\n      const panel = document.getElementById('panel-' + id);\n      if(panel){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }\n    }\n    triggers.forEach(btn => btn.addEventListener('click', () => activate(btn.id.replace('tab-',''))));\n    document.querySelectorAll('[data-tab]').forEach(el => el.addEventListener('click', () => activate(el.getAttribute('data-tab'))));\n\n    // Year\n    document.getElementById('year').textContent = new Date().getFullYear();\n  </script>\n</body>\n</html>\n
+        <p class="mt-3 text-sm">Director Name: ____________________  Signature: ____________________  Date: __________</p>
+      </article>
+
+      <!-- Annual Disclosure Form (conflicts) -->
+      <article class="mt-6 rounded-2xl bg-white shadow p-5 doc">
+        <h3>Annual Conflict of Interest Disclosure</h3>
+        <p>Please complete annually and upon changes. Submit to the Governance Committee.</p>
+        <ol class="list-decimal list-inside space-y-1">
+          <li>List any entities in which you or a Family Member hold a Material Financial Interest that may interact with HMC.</li>
+          <li>List any positions (officer, director, employee, consultant) you hold with entities that may interact with HMC.</li>
+          <li>Disclose any transactions with HMC in the past 12 months or anticipated in the next 12 months.</li>
+          <li>Affirm you have read and agree to comply with the Conflict of Interest Policy.</li>
+        </ol>
+        <p class="mt-3 text-sm">Signature: ____________________  Date: __________</p>
+      </article>
+    </section>
+
+    <!-- Apply -->
+    <section id="panel-apply" class="tab-panel" role="tabpanel" aria-labelledby="tab-apply" aria-hidden="true">
+      <h2 class="text-xl font-semibold mb-2">Unified Application</h2>
+      <p class="text-slate-700">Apply to serve on the Board of Directors or the Community Advisory Board. Complete all required fields. You may upload signed policy documents below.</p>
+
+      <form id="unifiedApp" class="mt-4 grid gap-4 rounded-2xl bg-white shadow p-5" enctype="multipart/form-data" novalidate>
+        <!-- Honeypot -->
+        <input type="text" name="website" autocomplete="off" tabindex="-1" class="hidden" aria-hidden="true" />
+
+        <!-- Identity -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block"><span class="text-sm font-medium">Full Name *</span><input name="name" type="text" required class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+          <label class="block"><span class="text-sm font-medium">Email *</span><input name="email" type="email" required class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block"><span class="text-sm font-medium">Phone</span><input name="phone" type="tel" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+          <label class="block"><span class="text-sm font-medium">Applying For *</span>
+            <select name="role" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" required>
+              <option value="Community Advisory Board">Community Advisory Board</option>
+              <option value="Board of Directors">Board of Directors</option>
+            </select>
+          </label>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block"><span class="text-sm font-medium">Occupation / Title</span><input name="occupation" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+          <label class="block"><span class="text-sm font-medium">Employer / Organization</span><input name="employer" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block"><span class="text-sm font-medium">City</span><input name="city" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+          <label class="block"><span class="text-sm font-medium">State</span><input name="state" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+        </div>
+
+        <label class="block"><span class="text-sm font-medium">LinkedIn or Resume URL</span><input name="resume" type="url" placeholder="https://" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+
+        <fieldset class="rounded-lg border border-slate-200 p-3">
+          <legend class="text-sm font-medium px-1">Areas of Expertise (select all that apply)</legend>
+          <div class="grid sm:grid-cols-2 gap-x-4 gap-y-2 mt-2 text-sm">
+            <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Healthcare delivery" />Healthcare delivery</label>
+            <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Community engagement" />Community engagement</label>
+            <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Finance/Audit" />Finance/Audit</label>
+            <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Legal/Compliance" />Legal/Compliance</label>
+            <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Fundraising/Development" />Fundraising/Development</label>
+            <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Quality/Performance Improvement" />Quality/Performance Improvement</label>
+            <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Policy/Advocacy" />Policy/Advocacy</label>
+            <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Governance/Nominations" />Governance/Nominations</label>
+          </div>
+        </fieldset>
+
+        <label class="block"><span class="text-sm font-medium">Prior Board or Advisory Experience</span><textarea name="board_experience" rows="3" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="List organizations, roles, and years of service."></textarea></label>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block"><span class="text-sm font-medium">Fundraising Comfort Level</span>
+            <select name="fundraising" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2">
+              <option value="">Select</option>
+              <option value="High">High — comfortable leading outreach</option>
+              <option value="Medium">Medium — comfortable supporting</option>
+              <option value="Low">Low — prefer behind-the-scenes support</option>
+            </select>
+          </label>
+          <label class="block"><span class="text-sm font-medium">Officer Role Interest (optional)</span>
+            <select name="officer_interest" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2">
+              <option value="None">None/Not at this time</option>
+              <option value="Chair">Chair</option>
+              <option value="Vice Chair">Vice Chair</option>
+              <option value="Treasurer">Treasurer</option>
+              <option value="Secretary">Secretary</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="block"><span class="text-sm font-medium">Committee Interests</span>
+          <select name="committees" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" multiple>
+            <option>Executive</option>
+            <option>Governance & Nominations</option>
+            <option>Finance, Audit & Risk</option>
+            <option>Programs, Quality & Clinical Oversight</option>
+            <option>Workforce Development & Education</option>
+            <option>Development & Community Partnerships</option>
+            <option>Community Engagement & Advocacy</option>
+          </select>
+          <p class="text-xs text-slate-500 mt-1">Hold Ctrl/⌘ to select multiple.</p>
+        </label>
+
+        <label class="block"><span class="text-sm font-medium">Conflict of Interest Disclosure</span><textarea name="conflict" rows="3" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="Describe any relationships or interests that could be perceived as a conflict. If none, write 'None'."></textarea></label>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block"><span class="text-sm font-medium">Reference 1 (Name & Email)</span><input name="ref1" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+          <label class="block"><span class="text-sm font-medium">Reference 2 (Name & Email)</span><input name="ref2" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+        </div>
+
+        <label class="block"><span class="text-sm font-medium">Statement of Interest (300–500 words)</span><textarea name="bio" rows="6" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></textarea></label>
+
+        <!-- Uploads -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block"><span class="text-sm font-medium">Upload Signed Board Member Agreement (PDF)</span><input name="bm_agreement" type="file" accept="application/pdf" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+          <label class="block"><span class="text-sm font-medium">Upload Signed Conflict of Interest (PDF)</span><input name="coi_policy" type="file" accept="application/pdf" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block"><span class="text-sm font-medium">Upload Signed Code of Ethics (PDF)</span><input name="ethics_policy" type="file" accept="application/pdf" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+          <label class="block"><span class="text-sm font-medium">Headshot (optional)</span><input name="headshot" type="file" accept="image/*" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+        </div>
+
+        <!-- Required acknowledgments -->
+        <div class="space-y-2 text-sm">
+          <label class="inline-flex items-center gap-2"><input type="checkbox" name="ack_policies" required />I have read and agree to comply with the Code of Ethics and the Conflict of Interest Policy.</label>
+          <label class="inline-flex items-center gap-2"><input type="checkbox" name="ack_confidentiality" required />I agree to maintain confidentiality of nonpublic information.</label>
+          <label class="inline-flex items-center gap-2"><input type="checkbox" name="ack_background" />I consent to a background check if required for service.</label>
+        </div>
+
+        <!-- Submit + messages -->
+        <div class="flex flex-wrap gap-3 items-center">
+          <button type="submit" class="rounded-xl bg-slate-900 text-white px-4 py-2 font-medium hover:bg-slate-800">Submit Application</button>
+          <p class="text-xs text-slate-500">If you experience issues, you may also apply via our <a class="underline" href="https://forms.gle/X3u5sSkPyyafdZAJ7" target="_blank" rel="noopener">Google Form</a>.</p>
+        </div>
+        <div id="formSuccess" class="hidden mt-2 rounded-lg bg-green-50 text-green-800 px-3 py-2 text-sm">Thank you. Your application was submitted.</div>
+        <div id="formError" class="hidden mt-2 rounded-lg bg-red-50 text-red-800 px-3 py-2 text-sm">We could not submit the form. Please try again.</div>
+      </form>
+    </section>
+
+    <!-- Downloads -->
+    <section id="panel-downloads" class="tab-panel" role="tabpanel" aria-labelledby="tab-downloads" aria-hidden="true">
+      <h2 class="text-xl font-semibold mb-2">Downloads</h2>
+      <ul class="mt-3 space-y-2 text-slate-700">
+        <li><a href="sandbox:/mnt/data/HMC_Board_Packet_Formal_With_Fillables.zip" download>Complete Board Packet (ZIP)</a></li>
+        <li><a href="sandbox:/mnt/data/HMC_Committee_Structure_2025.pdf" download>Standing Committees — Adopted Oct 18, 2025 (PDF)</a></li>
+        <li><a href="sandbox:/mnt/data/HMC Board of Directors Overview .pdf" download>Board of Directors Overview (PDF)</a></li>
+        <li><a href="sandbox:/mnt/data/About HMC_v2.pdf" download>About HMC (PDF)</a></li>
+        <li><a href="sandbox:/mnt/data/Community Advisory Board Membership Application (Paper).pdf" download>Community Advisory Board Application (Paper) — PDF</a></li>
+        <li><a href="sandbox:/mnt/data/HMC_Standard_Meeting_Agenda.pdf" download>Standard Meeting Agenda (Reference)</a></li>
+        <li><a href="sandbox:/mnt/data/HMC_Conflict_of_Interest_Policy_FILLABLE.pdf" download>Conflict of Interest Policy — PDF (fillable)</a></li>
+        <li><a href="sandbox:/mnt/data/HMC_Code_of_Ethics_FILLABLE.pdf" download>Code of Ethics — PDF (fillable)</a></li>
+        <li><a href="sandbox:/mnt/data/HMC_Board_Member_Agreement_FILLABLE.pdf" download>Board Member Agreement — PDF (fillable)</a></li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section id="panel-faq" class="tab-panel" role="tabpanel" aria-labelledby="tab-faq" aria-hidden="true">
+      <h2 class="text-xl font-semibold mb-2">Frequently Asked Questions</h2>
+      <details class="mb-3 bg-white p-4 rounded-xl shadow"><summary class="font-medium cursor-pointer">Who is eligible to serve?</summary><p class="mt-2 text-slate-700">Individuals who support HMC’s mission, can meet participation expectations, and uphold ethical standards. The Board considers professional expertise, community representation, and alignment with organizational values.</p></details>
+      <details class="mb-3 bg-white p-4 rounded-xl shadow"><summary class="font-medium cursor-pointer">What is the expected time commitment?</summary><p class="mt-2 text-slate-700">Board members average 3–5 hours per month; CAB members 2–3 hours. Committee work or special projects may add time seasonally.</p></details>
+      <details class="mb-3 bg-white p-4 rounded-xl shadow"><summary class="font-medium cursor-pointer">Are meetings hybrid or in‑person?</summary><p class="mt-2 text-slate-700">Hybrid participation is supported. Meeting notices include connection details and materials at least seven (7) days in advance.</p></details>
+      <details class="mb-3 bg-white p-4 rounded-xl shadow"><summary class="font-medium cursor-pointer">Is there a financial contribution requirement?</summary><p class="mt-2 text-slate-700">No mandatory give‑get is imposed at this time. Members act as ambassadors and connectors and may support development activities as able.</p></details>
+      <details class="mb-3 bg-white p-4 rounded-xl shadow"><summary class="font-medium cursor-pointer">How are conflicts of interest handled?</summary><p class="mt-2 text-slate-700">All potential conflicts must be disclosed. Affected members recuse from related deliberations and votes. Decisions are recorded in the minutes per policy.</p></details>
+      <details class="mb-3 bg-white p-4 rounded-xl shadow"><summary class="font-medium cursor-pointer">Are expenses reimbursed?</summary><p class="mt-2 text-slate-700">Reasonable, pre‑approved expenses incurred on behalf of HMC are reimbursed consistent with policy.</p></details>
+      <details class="mb-3 bg-white p-4 rounded-xl shadow"><summary class="font-medium cursor-pointer">Whom do I contact with questions?</summary><p class="mt-2 text-slate-700">Email <a class="underline" href="mailto:executive@healthmatters.clinic">executive@healthmatters.clinic</a>. You may also reach out via <a class="underline" href="https://www.linkedin.com/company/healthmattersclinic/" target="_blank" rel="noopener">LinkedIn</a> or <a class="underline" href="https://www.youtube.com/@healthmatters.clinic" target="_blank" rel="noopener">YouTube</a>.</p></details>
+    </section>
+
+    <!-- Contact -->
+    <section id="panel-contact" class="tab-panel" role="tabpanel" aria-labelledby="tab-contact" aria-hidden="true">
+      <h2 class="text-xl font-semibold mb-2">Contact</h2>
+      <ul class="text-slate-700 space-y-1">
+        <li><strong>Email:</strong> <a href="mailto:executive@healthmatters.clinic" class="underline">executive@healthmatters.clinic</a></li>
+        <li><strong>Phone:</strong> (404) 904-6355</li>
+        <li><strong>Website:</strong> <a href="https://www.healthmatters.clinic" target="_blank" class="underline">www.healthmatters.clinic</a></li>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/healthmattersclinic/" target="_blank" class="underline">linkedin.com/company/healthmattersclinic</a></li>
+        <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@healthmatters.clinic" target="_blank" class="underline">youtube.com/@healthmatters.clinic</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="mt-12 py-10 text-center text-sm text-slate-500">
+    <p>© <span id="year"></span> Health Matters Clinic • Helping + Healing</p>
+  </footer>
+
+  <script>
+    // Tabs
+    const triggers = Array.from(document.querySelectorAll('.tab-trigger'));
+    const panels = Array.from(document.querySelectorAll('.tab-panel'));
+    function activate(id){
+      triggers.forEach(btn => btn.setAttribute('aria-selected', String(btn.id === 'tab-' + id)));
+      panels.forEach(p => p.setAttribute('aria-hidden', String(p.id !== 'panel-' + id)));
+      const panel = document.getElementById('panel-' + id);
+      if(panel){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
+    }
+    triggers.forEach(btn => btn.addEventListener('click', () => activate(btn.id.replace('tab-',''))));
+    document.querySelectorAll('[data-tab]').forEach(el => el.addEventListener('click', () => activate(el.getAttribute('data-tab'))));
+
+    // Apply form: submit to backend endpoint
+    const applyEndpoint = '/api/apply';
+    const form = document.getElementById('unifiedApp');
+    const successEl = document.getElementById('formSuccess');
+    const errorEl = document.getElementById('formError');
+    if(form){
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        successEl && successEl.classList.add('hidden');
+        errorEl && errorEl.classList.add('hidden');
+
+        const fd = new FormData(form);
+        // Mirror Policies tab acknowledgment into submission if checked
+        const ackPoliciesEl = document.getElementById('ackPolicies');
+        if(ackPoliciesEl && ackPoliciesEl.checked){ fd.append('ack_policies_read_tab', 'true'); }
+
+        try{
+          const resp = await fetch(applyEndpoint, { method:'POST', body: fd });
+          const json = await resp.json().catch(()=>({}));
+          if(resp.ok && json.ok){
+            successEl && successEl.classList.remove('hidden');
+            form.reset();
+          } else {
+            errorEl && errorEl.classList.remove('hidden');
+          }
+        }catch(err){
+          errorEl && errorEl.classList.remove('hidden');
+        }
+      });
+    }
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
