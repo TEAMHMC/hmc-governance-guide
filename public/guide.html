@@ -3,118 +3,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apply to Serve on Our Board or Community Advisory Council — Health Matters Clinic</title>
-  <meta name="description" content="Apply to serve on the Board of Directors or Community Advisory Council for Health Matters Clinic. Submit your information, upload documents, and join our mission to advance health equity." />
+  <title>Health Matters Clinic — Governance & Advisory Guide (v3)</title>
+  <meta name="description" content="Full Governance & Advisory Guide for Health Matters Clinic, including all board documentation and the unified application form." />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    .container-wide { max-width: 1080px; }
+    body { background-color: #f9fafb; color: #1e293b; }
+    .tab-trigger[aria-selected="true"] { border-bottom-width: 3px; }
+    .tab-panel { display: none; }
+    .tab-panel[aria-hidden="false"] { display: block; }
     .gradient-hero { background: linear-gradient(135deg, #1d4ed8, #f59e0b, #ef4444, #ec4899); background-size: 300% 300%; animation: shift 12s ease infinite; }
     @keyframes shift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
   </style>
 </head>
-<body class="min-h-screen bg-slate-50 text-slate-800">
-  <header class="gradient-hero text-white py-8">
-    <div class="container-wide mx-auto px-6">
-      <h1 class="text-3xl font-bold">Apply to Serve on Our Board or Community Advisory Council</h1>
-      <p class="text-white/90 text-sm">Health Matters Clinic • Helping + Healing</p>
+<body class="min-h-screen">
+  <header class="gradient-hero text-white py-6">
+    <div class="max-w-5xl mx-auto px-6 flex items-center justify-between">
+      <div>
+        <h1 class="text-3xl font-semibold">Health Matters Clinic</h1>
+        <p class="text-sm opacity-90">Helping + Healing • Governance & Advisory Guide</p>
+      </div>
+      <div class="hidden sm:flex gap-3">
+        <button data-tab="overview" class="bg-white/90 text-slate-900 px-4 py-2 rounded-xl font-medium shadow">Overview</button>
+        <button data-tab="apply" class="bg-slate-900/60 text-white px-4 py-2 rounded-xl font-medium shadow">Apply</button>
+      </div>
     </div>
   </header>
 
-  <main class="container-wide mx-auto px-6 py-10">
-    <p class="mb-6 text-slate-700">Complete this form to express your interest in serving as a member of Health Matters Clinic’s Board of Directors or Community Advisory Council. Your submission will be automatically recorded in our secure database, with uploaded files stored in Google Drive.</p>
+  <main class="max-w-5xl mx-auto px-6 py-8">
+    <section id="panel-overview" class="tab-panel" aria-hidden="false">
+      <h2 class="text-xl font-semibold mb-3">Overview</h2>
+      <p class="mb-4">Health Matters Clinic (HMC) is a nonprofit community health organization dedicated to equitable access to care. This guide outlines our governance structure, policies, and application process for those interested in serving on our Board of Directors or Community Advisory Council.</p>
+      <ul class="list-disc list-inside space-y-1">
+        <li><strong>Mission:</strong> Break down barriers to health for all.</li>
+        <li><strong>Governance:</strong> Board of Directors provides fiduciary oversight; Community Advisory Council represents lived experience and community voice.</li>
+        <li><strong>Committees:</strong> Executive, Governance & Nominations, Finance & Audit, Programs & Quality, Development, and Advocacy.</li>
+      </ul>
+    </section>
 
-    <form id="hmcApplyForm" class="space-y-6 bg-white shadow rounded-2xl p-6" enctype="multipart/form-data" novalidate>
-      <div class="grid sm:grid-cols-2 gap-4">
-        <label class="block"><span class="text-sm font-medium">Full Name *</span><input name="name" type="text" required class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></label>
-        <label class="block"><span class="text-sm font-medium">Email *</span><input name="email" type="email" required class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></label>
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <label class="block"><span class="text-sm font-medium">Phone</span><input name="phone" type="tel" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></label>
-        <label class="block"><span class="text-sm font-medium">Applying For *</span>
-          <select name="role" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" required>
-            <option value="Community Advisory Board">Community Advisory Council</option>
-            <option value="Board of Directors">Board of Directors</option>
-          </select>
-        </label>
-      </div>
-
-      <label class="block"><span class="text-sm font-medium">LinkedIn Profile or Resume URL</span><input name="resume" type="url" placeholder="https://" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></label>
-
-      <fieldset class="rounded-lg border border-slate-200 p-3">
-        <legend class="text-sm font-medium px-1">Areas of Expertise</legend>
-        <div class="grid sm:grid-cols-2 gap-x-4 gap-y-2 mt-2 text-sm">
-          <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Healthcare Delivery">Healthcare Delivery</label>
-          <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Finance/Audit">Finance/Audit</label>
-          <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Legal/Compliance">Legal/Compliance</label>
-          <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Fundraising/Development">Fundraising/Development</label>
-          <label class="inline-flex items-center gap-2"><input type="checkbox" name="skills" value="Community Engagement">Community Engagement</label>
-        </div>
-      </fieldset>
-
-      <label class="block"><span class="text-sm font-medium">Prior Board or Advisory Experience</span><textarea name="board_experience" rows="3" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></textarea></label>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <label class="block"><span class="text-sm font-medium">Reference 1 - Name</span><input name="ref1_name" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></label>
-        <label class="block"><span class="text-sm font-medium">Reference 1 - Email</span><input name="ref1_email" type="email" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></label>
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <label class="block"><span class="text-sm font-medium">Reference 2 - Name</span><input name="ref2_name" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></label>
-        <label class="block"><span class="text-sm font-medium">Reference 2 - Email</span><input name="ref2_email" type="email" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></label>
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <label class="block"><span class="text-sm font-medium">Upload Signed Board Member Agreement (PDF)</span><input name="bm_agreement" type="file" accept="application/pdf" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></label>
-        <label class="block"><span class="text-sm font-medium">Upload Headshot (optional)</span><input name="headshot" type="file" accept="image/*" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></label>
-      </div>
-
-      <div class="text-sm space-y-2">
-        <label class="inline-flex items-center gap-2"><input type="checkbox" required>I confirm I have read and agree to the Code of Ethics and Conflict of Interest Policy.</label>
-      </div>
-
-      <div class="flex gap-3 items-center">
-        <button type="submit" class="rounded-xl bg-slate-900 text-white px-4 py-2 font-medium hover:bg-slate-800">Submit Application</button>
-        <p class="text-xs text-slate-500">If you experience issues, you may also apply via our <a href="https://forms.gle/X3u5sSkPyyafdZAJ7" target="_blank" class="underline">Google Form</a>.</p>
-      </div>
-
-      <div id="formSuccess" class="hidden mt-2 rounded-lg bg-green-50 text-green-800 px-3 py-2 text-sm">Thank you. Your application was submitted successfully.</div>
-      <div id="formError" class="hidden mt-2 rounded-lg bg-red-50 text-red-800 px-3 py-2 text-sm">Error submitting your application. Please try again.</div>
-    </form>
+    <section id="panel-apply" class="tab-panel" aria-hidden="false">
+      <h2 class="text-xl font-semibold mb-3">Apply to Serve on Our Board or Community Advisory Council</h2>
+      <p class="text-slate-700 mb-4">Please complete the application below. Submissions are automatically routed to our secure backend (Google Sheets & Drive integration). You may also upload signed copies of required forms during the process.</p>
+      <iframe src="https://forms.gle/X3u5sSkPyyafdZAJ7" width="100%" height="1000" frameborder="0" class="rounded-xl shadow"></iframe>
+    </section>
   </main>
 
-  <footer class="mt-12 py-10 text-center text-sm text-slate-500">
+  <footer class="text-center py-8 text-sm text-slate-600">
     <p>© <span id="year"></span> Health Matters Clinic • Helping + Healing</p>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    const form = document.getElementById('hmcApplyForm');
-    const successEl = document.getElementById('formSuccess');
-    const errorEl = document.getElementById('formError');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      successEl.classList.add('hidden');
-      errorEl.classList.add('hidden');
-
-      const fd = new FormData(form);
-
-      try {
-        const resp = await fetch('/api/apply', { method: 'POST', body: fd });
-        const json = await resp.json().catch(() => ({}));
-        if (resp.ok && json.ok) {
-          successEl.classList.remove('hidden');
-          form.reset();
-        } else {
-          errorEl.classList.remove('hidden');
-        }
-      } catch (err) {
-        errorEl.classList.remove('hidden');
-      }
-    });
   </script>
 </body>
 </html>
