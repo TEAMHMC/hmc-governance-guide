@@ -240,7 +240,7 @@
 
     <!-- Apply -->
     <section id="panel-apply" class="tab-panel" role="tabpanel" aria-labelledby="tab-apply" aria-hidden="true">
-      <h2 class="text-xl font-semibold mb-2">Unified Application</h2>
+      <h2 class="text-xl font-semibold mb-2">Application</h2>
       <p class="text-slate-700">Apply to serve on the Board of Directors or the Community Advisory Board. Complete all required fields. You may upload signed policy documents below.</p>
 
       <form id="unifiedApp" class="mt-4 grid gap-4 rounded-2xl bg-white shadow p-5" enctype="multipart/form-data" novalidate>
@@ -449,5 +449,56 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+    // Find the form
+    const form = document.getElementById('unifiedApp');
+  
+    // Create lightweight success/error banners if not in your file already
+    const successEl = document.getElementById('formSuccess') || (() => {
+      const d = document.createElement('div');
+      d.id = 'formSuccess';
+      d.className = 'hidden mt-2 rounded-lg bg-green-50 text-green-800 px-3 py-2 text-sm';
+      d.textContent = 'Thank you. Your application was submitted.';
+      form && form.appendChild(d);
+      return d;
+    })();
+  
+    const errorEl = document.getElementById('formError') || (() => {
+      const d = document.createElement('div');
+      d.id = 'formError';
+      d.className = 'hidden mt-2 rounded-lg bg-red-50 text-red-800 px-3 py-2 text-sm';
+      d.textContent = 'We could not submit the form. Please try again.';
+      form && form.appendChild(d);
+      return d;
+    })();
+  
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        successEl.classList.add('hidden');
+        errorEl.classList.add('hidden');
+  
+        const fd = new FormData(form);
+  
+        // Honeypot: ignore bots
+        if (fd.get('website')) return;
+  
+        try {
+          const resp = await fetch('/api/apply', { method: 'POST', body: fd });
+          const json = await resp.json().catch(() => ({}));
+          if (resp.ok && json.ok) {
+            successEl.classList.remove('hidden');
+            form.reset();
+          } else {
+            errorEl.classList.remove('hidden');
+            console.error('Apply error:', json);
+          }
+        } catch (err) {
+          errorEl.classList.remove('hidden');
+          console.error('Apply fetch failed:', err);
+        }
+      });
+    }
+  </script>  
 </body>
 </html>
