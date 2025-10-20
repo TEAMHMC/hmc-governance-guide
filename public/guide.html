@@ -324,8 +324,24 @@
         <label class="block"><span class="text-sm font-medium">Conflict of Interest Disclosure</span><textarea name="conflict" rows="3" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" placeholder="Describe any relationships or interests that could be perceived as a conflict. If none, write 'None'."></textarea></label>
 
         <div class="grid sm:grid-cols-2 gap-4">
-          <label class="block"><span class="text-sm font-medium">Reference 1 (Name & Email)</span><input name="ref1" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
-          <label class="block"><span class="text-sm font-medium">Reference 2 (Name & Email)</span><input name="ref2" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" /></label>
+          <label class="block">
+            <span class="text-sm font-medium">Reference 1 — Name</span>
+            <input name="ref1_name" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium">Reference 1 — Email</span>
+            <input name="ref1_email" type="email" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" />
+          </label>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block">
+            <span class="text-sm font-medium">Reference 2 — Name</span>
+            <input name="ref2_name" type="text" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" />
+          </label>
+          <label class="block">
+            <span class="text-sm font-medium">Reference 2 — Email</span>
+            <input name="ref2_email" type="email" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" />
+          </label>
         </div>
 
         <label class="block"><span class="text-sm font-medium">Statement of Interest (300–500 words)</span><textarea name="bio" rows="6" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"></textarea></label>
