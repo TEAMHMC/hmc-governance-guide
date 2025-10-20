@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@sendgrid/mail": "^8.1.6",
     "busboy": "^1.6.0",
     "googleapis": "^164.0.0"
   }
