@@ -419,92 +419,62 @@
   </footer>
 
   <script>
-    // Tabs
-    const triggers = Array.from(document.querySelectorAll('.tab-trigger'));
-    const panels = Array.from(document.querySelectorAll('.tab-panel'));
-    function activate(id){
-      triggers.forEach(btn => btn.setAttribute('aria-selected', String(btn.id === 'tab-' + id)));
-      panels.forEach(p => p.setAttribute('aria-hidden', String(p.id !== 'panel-' + id)));
-      const panel = document.getElementById('panel-' + id);
-      if(panel){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
-    }
-    triggers.forEach(btn => btn.addEventListener('click', () => activate(btn.id.replace('tab-',''))));
-    document.querySelectorAll('[data-tab]').forEach(el => el.addEventListener('click', () => activate(el.getAttribute('data-tab'))));
-
-    // Apply form: submit to backend endpoint
-    const applyEndpoint = '/api/apply';
-    const form = document.getElementById('unifiedApp');
-    const successEl = document.getElementById('formSuccess');
-    const errorEl = document.getElementById('formError');
-    if(form){
-      form.addEventListener('submit', async (e)=>{
-        e.preventDefault();
-        successEl && successEl.classList.add('hidden');
-        errorEl && errorEl.classList.add('hidden');
-
-        const fd = new FormData(form);
-        // Mirror Policies tab acknowledgment into submission if checked
-        const ackPoliciesEl = document.getElementById('ackPolicies');
-        if(ackPoliciesEl && ackPoliciesEl.checked){ fd.append('ack_policies_read_tab', 'true'); }
-
-        try{
-          const resp = await fetch(applyEndpoint, { method:'POST', body: fd });
-          const json = await resp.json().catch(()=>({}));
-          if(resp.ok && json.ok){
-            successEl && successEl.classList.remove('hidden');
-            form.reset();
-          } else {
-            errorEl && errorEl.classList.remove('hidden');
-          }
-        }catch(err){
-          errorEl && errorEl.classList.remove('hidden');
-        }
-      });
-    }
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script>
-    // Find the form
-    const form = document.getElementById('unifiedApp');
-  
-    // Create lightweight success/error banners if not in your file already
-    const successEl = document.getElementById('formSuccess') || (() => {
-      const d = document.createElement('div');
-      d.id = 'formSuccess';
-      d.className = 'hidden mt-2 rounded-lg bg-green-50 text-green-800 px-3 py-2 text-sm';
-      d.textContent = 'Thank you. Your application was submitted.';
-      form && form.appendChild(d);
-      return d;
-    })();
-  
-    const errorEl = document.getElementById('formError') || (() => {
-      const d = document.createElement('div');
-      d.id = 'formError';
-      d.className = 'hidden mt-2 rounded-lg bg-red-50 text-red-800 px-3 py-2 text-sm';
-      d.textContent = 'We could not submit the form. Please try again.';
-      form && form.appendChild(d);
-      return d;
-    })();
-  
-    if (form) {
-      form.addEventListener('submit', async (e) => {
+    (() => {
+      // --- Tabs (unchanged) ---
+      const triggers = Array.from(document.querySelectorAll('.tab-trigger'));
+      const panels = Array.from(document.querySelectorAll('.tab-panel'));
+      function activate(id){
+        triggers.forEach(btn => btn.setAttribute('aria-selected', String(btn.id === 'tab-' + id)));
+        panels.forEach(p => p.setAttribute('aria-hidden', String(p.id !== 'panel-' + id)));
+        const panel = document.getElementById('panel-' + id);
+        if (panel) panel.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+      triggers.forEach(btn => btn.addEventListener('click', () => activate(btn.id.replace('tab-',''))));
+      document.querySelectorAll('[data-tab]').forEach(el => el.addEventListener('click', () => activate(el.getAttribute('data-tab'))));
+    
+      // --- Apply form: single, guarded wiring ---
+      const applyForm = document.getElementById('unifiedApp');
+      if (!applyForm || applyForm.dataset.__wired) return;
+      applyForm.dataset.__wired = '1';
+    
+      // Ensure success/error banners exist
+      let successEl = document.getElementById('formSuccess');
+      let errorEl = document.getElementById('formError');
+      if (!successEl) {
+        successEl = document.createElement('div');
+        successEl.id = 'formSuccess';
+        successEl.className = 'hidden mt-2 rounded-lg bg-green-50 text-green-800 px-3 py-2 text-sm';
+        successEl.textContent = 'Thank you. Your application was submitted.';
+        applyForm.appendChild(successEl);
+      }
+      if (!errorEl) {
+        errorEl = document.createElement('div');
+        errorEl.id = 'formError';
+        errorEl.className = 'hidden mt-2 rounded-lg bg-red-50 text-red-800 px-3 py-2 text-sm';
+        errorEl.textContent = 'We could not submit the form. Please try again.';
+        applyForm.appendChild(errorEl);
+      }
+    
+      applyForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         successEl.classList.add('hidden');
         errorEl.classList.add('hidden');
-  
-        const fd = new FormData(form);
+    
+        const fd = new FormData(applyForm);
+    
+        // Mirror Policies tab acknowledgment (if you kept that checkbox on Policies tab)
+        const ackPoliciesEl = document.getElementById('ackPolicies');
+        if (ackPoliciesEl && ackPoliciesEl.checked) fd.append('ack_policies_read_tab', 'true');
   
         // Honeypot: ignore bots
         if (fd.get('website')) return;
-  
+    
         try {
           const resp = await fetch('/api/apply', { method: 'POST', body: fd });
           const json = await resp.json().catch(() => ({}));
           if (resp.ok && json.ok) {
             successEl.classList.remove('hidden');
-            form.reset();
+            applyForm.reset();
           } else {
             errorEl.classList.remove('hidden');
             console.error('Apply error:', json);
@@ -514,7 +484,11 @@
           console.error('Apply fetch failed:', err);
         }
       });
-    }
-  </script>  
+    
+      // Footer year
+      const y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+    </script>    
 </body>
 </html>
