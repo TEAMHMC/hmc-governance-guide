@@ -67,18 +67,23 @@ async function uploadFilesToDrive(drive, parentFolderId, filesObj) {
     const list = Array.isArray(fileOrList) ? fileOrList : [fileOrList];
     for (const f of list) {
       if (!f || !f.filepath || !f.originalFilename) continue;
-      const media = {
-        mimeType: f.mimetype || 'application/octet-stream',
-        body: fs.createReadStream(f.filepath),
-      };
-      const res = await drive.files.create({
-        requestBody: { name: f.originalFilename, parents: [parentFolderId] },
-        media,
-        fields: 'id,name,webViewLink',
-      });
-      uploads.push(res.data);
-      // cleanup tmp
-      try { fs.unlinkSync(f.filepath); } catch {}
+      try {
+        const media = {
+          mimeType: f.mimetype || 'application/octet-stream',
+          body: fs.createReadStream(f.filepath),
+        };
+        const res = await drive.files.create({
+          requestBody: { name: f.originalFilename, parents: [parentFolderId] },
+          media,
+          fields: 'id,name,webViewLink',
+        });
+        uploads.push(res.data);
+        // cleanup tmp
+        try { fs.unlinkSync(f.filepath); } catch {}
+      } catch (uploadErr) {
+        console.error(`Failed to upload ${f.originalFilename}:`, uploadErr);
+        // Continue with other files even if one fails
+      }
     }
   }
   return uploads;
@@ -145,7 +150,19 @@ async function emailApplicant({ name, email, role }) {
 
 // ----- MAIN HANDLER -----
 export default async function handler(req, res) {
-  if (req.method !== 'POST') return res.status(405).json({ ok: false, error: 'Method not allowed' });
+  // Add CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  if (req.method !== 'POST') {
+    return res.status(405).json({ ok: false, error: 'Method not allowed' });
+  }
 
   try {
     const { drive, sheets } = getGoogleClients();
@@ -156,7 +173,9 @@ export default async function handler(req, res) {
     // required fields
     const name = (fields.name || '').toString().trim();
     const email = (fields.email || '').toString().trim();
-    if (!name || !email) return res.status(400).json({ ok: false, error: 'Missing name or email' });
+    if (!name || !email) {
+      return res.status(400).json({ ok: false, error: 'Missing name or email' });
+    }
 
     // normalize helpers
     const get = (k) => Array.isArray(fields[k]) ? fields[k][0]?.toString() || '' : (fields[k]?.toString() || '');
